@@ -11,8 +11,8 @@ def calcular_area_disponible():
         ancho_habitacion = float(entry_ancho_habitacion.get())
 
 
-        largo_area_no_utilizable = float("".get())
-        ancho_area_no_utilizable = float("".get())
+        largo_area_no_utilizable = float(entry_largo_area_no_utilizable.get())
+        ancho_area_no_utilizable = float(entry_ancho_area_no_utilizable.get())
 
         area_habitacion = largo_habitacion * ancho_habitacion
         area_no_utilizable = largo_area_no_utilizable * ancho_area_no_utilizable
@@ -65,4 +65,18 @@ label_ancho_habitacion.grid(row=1, column=0, padx=5, pady=5)
 entry_ancho_habitacion = tk.Entry(ventana)
 entry_ancho_habitacion.grid(row=1, column=1, padx=5, pady=5)
 
+
+label_largo_area_no_utilizable = tk.Label(ventana, text="Largo del área no utilizable (cm):")
+label_largo_area_no_utilizable.grid(row=2, column=0, padx=5, pady=5)
+entry_largo_area_no_utilizable = tk.Entry(ventana)
+entry_largo_area_no_utilizable.grid(row=2, column=1, padx=5, pady=5)
+
+label_ancho_area_no_utilizable = tk.Label(ventana, text="Ancho del área no utilizable (cm):")
+label_ancho_area_no_utilizable.grid(row=3, column=0, padx=5, pady=5)
+entry_ancho_area_no_utilizable = tk.Entry(ventana)
+entry_ancho_area_no_utilizable.grid(row=3, column=1, padx=5, pady=5)
+
+
+boton = tk.Button(ventana, text="Calcular Área Disponible", command=calcular_area_disponible)
+boton.grid(row=4, column=0, columnspan=2, padx=5, pady=5)
 
