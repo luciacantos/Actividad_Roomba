@@ -20,15 +20,19 @@ def calcular_area_disponible():
 
         area_disponible = area_disponible / 10000 # m^2
         area_no_utilizable = area_no_utilizable / 10000 # m^2
+        label_resultado_area_disponible.config(text=f"Área a limpiar: {area_disponible} m^2")
+        label_resultado_area_no_utilizable.config(text=f"Área no utilizable: {area_no_utilizable} m^2")
 
         tiempo = area_disponible / velocidad_media
         tiempo_minutos = tiempo / 60
+        label_resultado_tiempo.config(text=f"Tiempo estimado de limpieza: {tiempo_minutos: .2f} minutos")
+        label_resultado_velocidad.config(text=f"Velocidad del robot: {velocidad_media} m/s")
 
 
         dibujar_areas(largo_habitacion, ancho_habitacion, largo_area_no_utilizable, ancho_area_no_utilizable)
 
     except ValueError as e:
-        resultado_area_disponible.config(text=f"Error: {e}")
+        label_resultado_area_disponible.config(text=f"Error: {e}")
 
 
 def dibujar_areas(largo_habitacion, ancho_habitacion, largo_area_no_utilizable, ancho_area_no_utilizable):
@@ -80,3 +84,16 @@ entry_ancho_area_no_utilizable.grid(row=3, column=1, padx=5, pady=5)
 boton = tk.Button(ventana, text="Calcular Área Disponible", command=calcular_area_disponible)
 boton.grid(row=4, column=0, columnspan=2, padx=5, pady=5)
 
+label_resultado_area_disponible = tk.Label(ventana, text="")
+label_resultado_area_disponible.grid(row=5, column=0, columnspan=2, padx=5, pady=5)
+
+label_resultado_area_no_utilizable = tk.Label(ventana, text="")
+label_resultado_area_no_utilizable.grid(row=6, column=0, columnspan=2, padx=5, pady=5)
+
+label_resultado_tiempo = tk.Label(ventana, text="")
+label_resultado_tiempo.grid(row=7, column=0, columnspan=2, padx=5, pady=5)
+
+label_resultado_velocidad = tk.Label(ventana, text="")
+label_resultado_velocidad.grid(row=8, column=0, columnspan=2, padx=5, pady=5)
+
+ventana.mainloop()
