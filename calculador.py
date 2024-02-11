@@ -7,8 +7,8 @@ velocidad_media = 0.2
 def calcular_area_disponible():
     try:
 
-        largo_habitacion = float("".get())
-        ancho_habitacion = float("".get())
+        largo_habitacion = float(entry_largo_habitacion.get())
+        ancho_habitacion = float(entry_ancho_habitacion.get())
 
 
         largo_area_no_utilizable = float("".get())
@@ -23,6 +23,7 @@ def calcular_area_disponible():
 
         tiempo = area_disponible / velocidad_media
         tiempo_minutos = tiempo / 60
+
 
         dibujar_areas(largo_habitacion, ancho_habitacion, largo_area_no_utilizable, ancho_area_no_utilizable)
 
@@ -47,6 +48,21 @@ def dibujar_areas(largo_habitacion, ancho_habitacion, largo_area_no_utilizable, 
     plt.grid(True)
     plt.title('Áreas habitación y mueble')
 
+    plt.show()
 
+
+ventana = tk.Tk()
+ventana.title("Calculadora de Área a limpiar")
+
+
+label_largo_habitacion = tk.Label(ventana, text="Largo de la habitación (cm):")
+label_largo_habitacion.grid(row=0, column=0, padx=5, pady=5)
+entry_largo_habitacion = tk.Entry(ventana)
+entry_largo_habitacion.grid(row=0, column=1, padx=5, pady=5)
+
+label_ancho_habitacion = tk.Label(ventana, text="Ancho de la habitación (cm):")
+label_ancho_habitacion.grid(row=1, column=0, padx=5, pady=5)
+entry_ancho_habitacion = tk.Entry(ventana)
+entry_ancho_habitacion.grid(row=1, column=1, padx=5, pady=5)
 
 
